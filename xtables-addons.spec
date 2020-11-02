@@ -4,7 +4,7 @@
 
 Name:		xtables-addons
 Version:	3.7
-Release:	%mkrel 1
+Release:	2
 Summary:	Extensions that were not, or are not yet, accepted in the main kernel/iptables packages
 Group:		System/Kernel and hardware
 License:	GPLv2
@@ -12,9 +12,6 @@ URL:		http://xtables-addons.sourceforge.net/
 Source0: 	http://downloads.sourceforge.net/xtables-addons/%{name}-%{version}.tar.xz
 
 Provides:	iptables-addons = %{version}-%{release}
-
-# temp force new gcc
-BuildRequires:	gcc >= 9.2.0-1
 BuildRequires:	pkgconfig(xtables) >= 1.4.5
 BuildRequires:	kernel >= 3.7
 Requires:	kernel >= 3.7
@@ -103,19 +100,18 @@ table-based firewalling schema.)
 
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 # don't build the modules
-%configure --without-kbuild
-%make
+%configure --without-kbuild --libdir="/%{_lib}"
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # we don't package .la
-rm -f %{buildroot}%{_libdir}/libxt_ACCOUNT_cl.la
+rm -f %{buildroot}/%{_lib}/libxt_ACCOUNT_cl.la
 
 # prepare the dkms sources
 mkdir -p %{buildroot}%{_usr}/src/%{name}-%{version}-%{release}/ACCOUNT %{buildroot}%{_usr}/src/%{name}-%{version}-%{release}/pknock
