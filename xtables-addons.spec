@@ -158,8 +158,10 @@ true
 
 %files
 %doc LICENSE README INSTALL
+%{_sbindir}/pknlusr
 %{_libdir}/xtables/libxt_*.so
 %{_mandir}/man8/xtables-addons.8.*
+%{_mandir}/man8/pknlusr.8.*
 
 %files -n dkms-%{name}
 %{_usr}/src/%{name}-%{version}-%{release}
@@ -176,7 +178,12 @@ true
 %{_libdir}/libxt_ACCOUNT_cl.so
 
 %files -n xtables-geoip
+%{_bindir}/xt_geoip_fetch
+%{_bindir}/xt_geoip_fetch_maxmind
 %{_libexecdir}/xtables-addons/xt_geoip_build
 %{_libexecdir}/xtables-addons/xt_geoip_dl
+%{_libexecdir}/xtables-addons/xt_geoip_build_maxmind
+%{_libexecdir}/xtables-addons/xt_geoip_dl_maxmind
 %{_mandir}/man1/xt_geoip_build.1*
 %{_mandir}/man1/xt_geoip_dl.1*
+%{_mandir}/man1/xt_geoip_fetch.1.*
