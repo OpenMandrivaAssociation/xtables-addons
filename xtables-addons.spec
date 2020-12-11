@@ -159,7 +159,7 @@ true
 %files
 %doc LICENSE README INSTALL
 %{_libdir}/xtables/libxt_*.so
-%{_mandir}/man8/xtables-addons.8.xz
+%{_mandir}/man8/xtables-addons.8.*
 
 %files -n dkms-%{name}
 %{_usr}/src/%{name}-%{version}-%{release}
