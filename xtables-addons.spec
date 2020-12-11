@@ -165,7 +165,6 @@ true
 %{_usr}/src/%{name}-%{version}-%{release}
 
 %files -n iptaccount
-%doc README.omv
 %{_sbindir}/iptaccount
 %{_mandir}/man8/iptaccount.8*
 
