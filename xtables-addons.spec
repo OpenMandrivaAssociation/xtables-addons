@@ -4,7 +4,7 @@
 
 Name:		xtables-addons
 Version:	3.13
-Release:	1
+Release:	2
 Summary:	Extensions that were not, or are not yet, accepted in the main kernel/iptables packages
 Group:		System/Kernel and hardware
 License:	GPLv2
