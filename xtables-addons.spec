@@ -8,7 +8,7 @@ Release:	2
 Summary:	Extensions that were not, or are not yet, accepted in the main kernel/iptables packages
 Group:		System/Kernel and hardware
 License:	GPLv2
-URL:		http://xtables-addons.sourceforge.net/
+URL:		https://xtables-addons.sourceforge.net/
 Source0: 	https://inai.de/files/xtables-addons/%{name}-%{version}.tar.xz
 Provides:	iptables-addons = %{version}-%{release}
 BuildRequires:	pkgconfig(xtables) >= 1.4.5
