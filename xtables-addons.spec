@@ -1,10 +1,11 @@
-%define accountmajor 0
-%define libaccount %mklibname account %{accountmajor}
+%define accountmajor 1
+%define oldlibaccount %mklibname account 0
+%define libaccount %mklibname account
 %define libaccountdevel %mklibname account -d
 
 Name:		xtables-addons
-Version:	3.13
-Release:	2
+Version:	3.27
+Release:	1
 Summary:	Extensions that were not, or are not yet, accepted in the main kernel/iptables packages
 Group:		System/Kernel and hardware
 License:	GPLv2
@@ -53,6 +54,7 @@ Summary:	Library for iptaccount
 Group:		System/Kernel and hardware
 Requires:	kmod(xt_ACCOUNT.ko) = %{version}
 Requires:	%{name} = %{EVRD}
+%rename %{oldlibaccount}
 
 %description -n %{libaccount}
 Library for iptaccount. iptaccount is a helper example program for iptables
@@ -157,9 +159,15 @@ set -x
 true
 
 %files
-%doc LICENSE README INSTALL
+%doc LICENSE
 %{_sbindir}/pknlusr
 %{_libdir}/xtables/libxt_*.so
+%dir %{_libexecdir}/xtables-addons
+%{_libexecdir}/xtables-addons/xt_asn_build
+%{_libexecdir}/xtables-addons/xt_asn_dl
+%{_libexecdir}/xtables-addons/xt_asn_fetch
+%{_mandir}/man1/xt_asn_build.1*
+%{_mandir}/man1/xt_asn_dl.1*
 %{_mandir}/man8/xtables-addons.8.*
 %{_mandir}/man8/pknlusr.8.*
 
@@ -178,12 +186,13 @@ true
 %{_libdir}/libxt_ACCOUNT_cl.so
 
 %files -n xtables-geoip
-%{_bindir}/xt_geoip_fetch
-%{_bindir}/xt_geoip_fetch_maxmind
+%{_bindir}/xt_geoip_query
 %{_libexecdir}/xtables-addons/xt_geoip_build
 %{_libexecdir}/xtables-addons/xt_geoip_dl
 %{_libexecdir}/xtables-addons/xt_geoip_build_maxmind
 %{_libexecdir}/xtables-addons/xt_geoip_dl_maxmind
 %{_mandir}/man1/xt_geoip_build.1*
+%{_mandir}/man1/xt_geoip_build_maxmind.1*
 %{_mandir}/man1/xt_geoip_dl.1*
-%{_mandir}/man1/xt_geoip_fetch.1.*
+%{_mandir}/man1/xt_geoip_dl_maxmind.1*
+%{_mandir}/man1/xt_geoip_query.1*
