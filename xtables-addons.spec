@@ -12,6 +12,11 @@ License:	GPLv2
 URL:		https://xtables-addons.sourceforge.net/
 Source0: 	https://inai.de/files/xtables-addons/%{name}-%{version}.tar.xz
 Provides:	iptables-addons = %{version}-%{release}
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(xtables) >= 1.4.5
 BuildRequires:	kernel >= 3.7
 Requires:	kernel >= 3.7
